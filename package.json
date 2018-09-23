@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {    
-    "mongo" : "mongod --dbpath=C:\\Program Files\\MongoDB\\Server\\4.0\\bin\\",
-    "start" : "tsc -w && npm run mongo"
+  "scripts": {
+    "mongo": "mongod --dbpath=C:\\Program Files\\MongoDB\\Server\\4.0\\bin\\",
+    "start": "tsc -w && npm run mongo"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +17,9 @@
     "express": "^4.16.3",
     "tslint": "^5.11.0",
     "typescript": "^3.0.3"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "wait-on": "^3.0.1"
   }
 }
