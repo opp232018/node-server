@@ -25,6 +25,7 @@ class Server {
                 parameterLimit: 10000000
             })
         );
+console.log("his");
 
         serverApp.use((req: Request, res: Response, next: NextFunction) => {
             res.header("Access-Control-Allow-Origin", "*");

@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "mongo": "mongod --dbpath=C:\\Program Files\\MongoDB\\Server\\4.0\\bin",
+    "mongo": "mongod",
     "nodemon": "wait-on ./build/index.js && nodemon ./build/index.js",
-    "start": "concurrent --kill-others \"rimraf build\" \"npm run mongo\" \"tsc -w\" \"npm run nodemon\" "
+    "start": "concurrently \"rimraf build\" \"npm run mongo\" \"tsc -w\" \"npm run nodemon\" "
   },
   "keywords": [],
   "author": "",
