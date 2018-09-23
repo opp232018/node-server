@@ -4,6 +4,7 @@ import path from "path";
 import http from "http";
 import Routes from "./router";
 import {Config} from "./config";
+import { connect, Mongoose } from "mongoose";
 
 class Server {
 
@@ -41,14 +42,19 @@ class Server {
     }
 
     public routes(serverApp: express.Application, routerlink: express.Router){
-        serverApp.use( (req: Request, res: Response, next: NextFunction) => { 
+        serverApp.use(async (req: Request, res: Response, next: NextFunction) => { 
             if (!serverApp.get("mongoConnection")) {
                 // const conString = req.originalUrl.split("/")[1] === "test" ?       
-                const conString = Config.MONGO_CON_URL;          
+                const conString = Config.MONGO_CON_URL || "http://localhost:333/";  
+                const conn = await connect(conString);
+                serverApp.set("mongoConnection", conn);
+                
             }else{
-
+                next();
             }
         });
+
+        serverApp.use("/api/", routerlink);
     }
 }
 
